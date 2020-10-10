@@ -47,7 +47,6 @@ class Crawler:
         lessons = self.driver.find_elements_by_class_name("info")
         range = self.__get_date_range()
         courses = set(map(lambda lesson: lesson.find_elements_by_tag_name("a")[0].text, lessons))
-        print(courses, ", ", range)
         return Schedule(courses, range)
 
     def __get_date_range(self):
