@@ -1,0 +1,58 @@
+{
+  "upcoming": {
+    "2020-10-19": [
+      {
+        "type": "lesson",
+        "start_time": "10:00",
+        "end_time": "11:15",
+        "room": "2240",
+        "course": "$56732"
+      }, {
+        "type": "lesson",
+        "start_time": "11:20",
+        "end_time": "13:15",
+        "room": 1317,
+        "course": "$12334"
+      }
+    ]
+  },
+  "teachers": {
+    "SAV": {
+      "long_name": "Ville Saarikivi",
+      "short_name": "SAV",
+      "role": "matematiikka ja fysiikka",
+      "email": "ville.saarikivi@espoo.fi"
+    },
+    "KAA": {
+      "long_name": "Jussi Kaataja",
+      "short_name": "KAA",
+      "role": "matematiikka",
+      "email": "jussi.kaataja@espoo.fi"
+    }
+  },
+  "courses": {
+    "$12334": {
+      "title": "MAA07.D2",
+      "teacher": "SAV",
+      "homework": [
+        {
+          "given_on": "2020-10-08",
+          "homework": "134, 140, 148"
+        }
+      ],
+      "lesson_diary": [
+        {
+          "date": "2020-10-08",
+          "lesson_number": "",
+          "lesson_topic": ""
+        }
+      ]
+    },
+    "$56732": {
+      "title": "MAA18.1",
+      "teacher": "KAA",
+      "homework": [],
+      "lesson_diary": []
+    }
+  }
+}

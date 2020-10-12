@@ -1,1 +1,5 @@
 credentials
+*.log
+*.json
+
+__pycache__/

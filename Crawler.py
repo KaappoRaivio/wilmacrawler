@@ -1,4 +1,5 @@
 import datetime
+import json
 import re
 import time
 from dataclasses import dataclass
@@ -40,14 +41,84 @@ class Crawler:
         elem = self.driver.find_element_by_name("submit")
         elem.send_keys(Keys.RETURN)
 
+    @staticmethod
+    def __filter_duplicates(elements):
+        seen = set()
+        def iteration (item):
+            if item.text in seen:
+                return False
+            else:
+                seen.add(item.text)
+                return True
+
+        return list(filter(iteration, elements))
+
     def get_schedule(self):
         self.driver.get("http://wilma.espoo.fi/schedule")
+        next = WebDriverWait(self.driver, 30).until(EC.presence_of_element_located((By.CLASS_NAME, "vismaicon-arrow-right-circle")))
+        next.click()
         WebDriverWait(self.driver, 30).until(EC.presence_of_element_located((By.CLASS_NAME, "info")))
         # lessons = WebDriverWait(self.driver, 30).until(EC.presence_of_all_elements_located((By.CLASS_NAME, "info")))
-        lessons = self.driver.find_elements_by_class_name("info")
         range = self.__get_date_range()
-        courses = set(map(lambda lesson: lesson.find_elements_by_tag_name("a")[0].text, lessons))
-        return Schedule(courses, range)
+
+        lessons = self.driver.find_elements_by_class_name("info")
+        lessons = self.__filter_duplicates(lessons)
+        details = list(map(self.__get_lesson_details, lessons))
+
+        courses = set(map(lambda lesson: lesson.find_element_by_tag_name("a").text, lessons))
+        return Schedule(courses, range, details)
+
+    def __get_lesson_details(self, lesson_element):
+        course_title = lesson_element.find_element_by_class_name("no-underline-link")
+        teacher = lesson_element.find_element_by_class_name("teachers")
+        room = lesson_element.find_element_by_class_name("rooms")
+
+        print(course_title.text, teacher.text, room.text)
+        details = self.__get_course_details(course_title)
+
+        return course_title.text, teacher.text, room.text, details
+
+    def __get_course_details(self, course_element):
+        course_element.click()
+        self.driver.switch_to.window(self.driver.window_handles[-1])
+        tables = WebDriverWait(self.driver, 5).until(EC.presence_of_all_elements_located((By.CLASS_NAME, "table")))
+        print(tables)
+
+        homework = []
+        lesson_diary = []
+
+        for table in tables:
+            try:
+                headers = list(map(lambda a: a.text, table.find_element_by_tag_name("thead").find_element_by_tag_name("tr").find_elements_by_tag_name("th")))
+                print(headers)
+
+                if headers[1].lower().strip() == "kotitehtävät":
+                    print("Homework found!")
+                    # homework
+                    entries = table.find_element_by_tag_name("tbody").find_elements_by_tag_name("tr")
+
+                    for entry in entries:
+                        date, exercises = map(lambda x: x.text, entry.find_elements_by_tag_name("td"))
+                        homework.append({"date": date, "exercises": exercises})
+
+                elif headers[1].lower().strip() == "tuntinro":
+                    print("Diary found!")
+                    # lesson diary
+                    entries = table.find_element_by_tag_name("tbody").find_elements_by_tag_name("tr")
+                    for entry in entries:
+                        date, lesson_number, lesson_topic, teacher = map(lambda x: x.text, entry.find_elements_by_tag_name("td"))
+                        lesson_diary.append({"date": date, "lesson_number": lesson_number, "lesson_topic": lesson_topic, "teacher": teacher})
+
+            except:
+                continue
+
+        # self.driver.navigate().back()
+        self.driver.close()
+        self.driver.switch_to.window(self.driver.window_handles[0])
+
+        return homework, lesson_diary
+
+
 
     def __get_date_range(self):
         dates = self.driver.find_element_by_class_name("weekday-container").find_elements_by_class_name("weekday")
@@ -58,8 +129,8 @@ class Crawler:
         return self
 
     def __exit__(self, a, s, d):
-        # pass
-        self.driver.close()
+        pass
+        # self.driver.close()
 
 
 def get_credentials(path="credentials"):
@@ -103,10 +174,10 @@ class Schedule:
         4: "15.00–16.15 "
     }
 
-    def __init__(self, courses, dates):
-        self.schedule = [["--" for weekday in range(5)] for nth_lesson in range(5)]
+    def __init__(self, courses, dates, details):
+        self.schedule = [["" for weekday in range(5)] for nth_lesson in range(5)]
         self.dates = self.__parse_dates(dates)
-
+        self.details = details
         for course in courses:
             palkki, title = course.split(": ")
 
@@ -158,12 +229,15 @@ class Schedule:
 
         return [self.weekdays[index] + " " +  x for index, x in enumerate(list(map(lambda x: x.strftime("%d.%m"), dateobjects)))]
 
+import transform_ugly
 
 if __name__ == "__main__":
     options = Options()
-    options.add_argument("-headless")
+    # options.add_argument("-headless")
     driver = webdriver.Firefox(options=options)
     with Crawler(driver) as crawler:
         crawler.login(*get_credentials())
         time.sleep(1)
-        print(crawler.get_schedule())
+        s = crawler.get_schedule()
+        print(json.dumps(transform_ugly.transform(s.details, s), indent=4, sort_keys=True), file=open("out.json", "w"))
+        # print(s, s.details)
