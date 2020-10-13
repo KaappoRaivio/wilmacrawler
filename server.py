@@ -55,10 +55,10 @@ class GetHandler(BaseHTTPRequestHandler):
 
 
 
-
+import sys
 
 
 if __name__ == '__main__':
-    server = HTTPServer(('localhost', 8080), GetHandler)
+    server = HTTPServer(('localhost', int(sys.argv[1])), GetHandler)
     print('Starting server, use <Ctrl-C> to stop')
     server.serve_forever()
