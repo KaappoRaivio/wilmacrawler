@@ -11,6 +11,7 @@ def transform_upcoming(schedule, rooms_temp):
 
     dates = schedule.dates
     for nth_lesson, row in enumerate(schedule.schedule):
+        print(nth_lesson)
         for day_of_week, course_title in enumerate(row):
             date = dates[day_of_week]
 
@@ -27,7 +28,8 @@ def transform_upcoming(schedule, rooms_temp):
                     "start_time": start_time,
                     "end_time": end_time,
                     "course": course_title,
-                    "room": rooms_temp[course_title]
+                    "room": rooms_temp[course_title],
+                    "nth_lesson": nth_lesson
                 })
             else:
                 upcoming[convert_date(date)] = [{
@@ -35,7 +37,8 @@ def transform_upcoming(schedule, rooms_temp):
                     "start_time": start_time,
                     "end_time": end_time,
                     "course": course_title,
-                    "room": rooms_temp[course_title]
+                    "room": rooms_temp[course_title],
+                    "nth_lesson": nth_lesson
                 }]
 
 
