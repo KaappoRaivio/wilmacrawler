@@ -16,12 +16,13 @@ MONDAY = 0
 
 
 class Crawler:
-    def __init__(self, driver):
+    def __init__(self, driver, debug=False):
         self.driver = driver
         self.id = 0
 
         self.driver.get("http://wilma.espoo.fi")
         self.driver.set_window_size(960, 1080)
+        self.debug = debug
 
     def login(self, username, password):
         time.sleep(1)
@@ -73,7 +74,7 @@ class Crawler:
         teacher = lesson_element.find_element_by_class_name("teachers")
         room = lesson_element.find_element_by_class_name("rooms")
 
-        print(course_title.text, teacher.text, room.text)
+        # print(course_title.text, teacher.text, room.text)
         details = self.__get_course_details(course_title)
 
         return course_title.text, teacher.text, room.text, details
@@ -82,7 +83,7 @@ class Crawler:
         course_element.click()
         self.driver.switch_to.window(self.driver.window_handles[-1])
         tables = WebDriverWait(self.driver, 5).until(EC.presence_of_all_elements_located((By.CLASS_NAME, "table")))
-        print(tables)
+        # print(tables)
 
         homework = []
         lesson_diary = []
@@ -90,10 +91,10 @@ class Crawler:
         for table in tables:
             try:
                 headers = list(map(lambda a: a.text, table.find_element_by_tag_name("thead").find_element_by_tag_name("tr").find_elements_by_tag_name("th")))
-                print(headers)
+                # print(headers)
 
                 if headers[1].lower().strip() == "kotitehtävät":
-                    print("Homework found!")
+                    # print("Homework found!")
                     # homework
                     entries = table.find_element_by_tag_name("tbody").find_elements_by_tag_name("tr")
 
@@ -102,7 +103,7 @@ class Crawler:
                         homework.append({"date": date, "exercises": exercises})
 
                 elif headers[1].lower().strip() == "tuntinro":
-                    print("Diary found!")
+                    # print("Diary found!")
                     # lesson diary
                     entries = table.find_element_by_tag_name("tbody").find_elements_by_tag_name("tr")
                     for entry in entries:
@@ -129,8 +130,8 @@ class Crawler:
         return self
 
     def __exit__(self, a, s, d):
-        pass
-        # self.driver.close()
+        if not self.debug:
+            self.driver.close()
 
 
 def get_credentials(path="credentials"):
@@ -235,8 +236,8 @@ if __name__ == "__main__":
     options = Options()
     # options.add_argument("-headless")
     driver = webdriver.Firefox(options=options)
-    with Crawler(driver) as crawler:
-        crawler.login(*get_credentials())
+    with Crawler(driver, debug=True) as crawler:
+        crawler.login("wrong", "pass")
         time.sleep(1)
         s = crawler.get_schedule()
         print(json.dumps(transform_ugly.transform(s.details, s), indent=4, sort_keys=True), file=open("out.json", "w"))
