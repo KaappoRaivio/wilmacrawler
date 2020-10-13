@@ -24,8 +24,8 @@ def get_data(username, password):
         with Crawler(driver) as crawler:
             crawler.login(username, password)
             time.sleep(0.5)
-            s = crawler.get_schedule()
-            _json = transform_ugly.transform(s.details, s)
+            schedule = crawler.get_schedule()
+            _json = transform_ugly.transform(schedule)
             cache[username] = (time.time(), _json)
             return _json
 

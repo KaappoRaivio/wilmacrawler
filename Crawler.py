@@ -240,6 +240,6 @@ if __name__ == "__main__":
     with Crawler(driver, debug=True) as crawler:
         crawler.login(*get_credentials())
         time.sleep(1)
-        s = crawler.get_schedule()
-        print(json.dumps(transform_ugly.transform(s.details, s), indent=4, sort_keys=True), file=open("out.json", "w"))
+        schedule = crawler.get_schedule()
+        print(json.dumps(transform_ugly.transform(schedule), indent=4, sort_keys=True), file=open("out.json", "w"))
         # print(s, s.details)

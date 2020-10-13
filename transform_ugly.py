@@ -13,7 +13,7 @@ def transform_upcoming(schedule, rooms_temp):
     for nth_lesson, row in enumerate(schedule.schedule):
         for day_of_week, course_title in enumerate(row):
             date = dates[day_of_week]
-            
+
             if course_title == "":
                 continue
 
