@@ -35,6 +35,7 @@ class GetHandler(BaseHTTPRequestHandler):
         # o = parse.urlparse(self.path)
         # params = parse.parse_qs(o.query)
         # print(params)
+        print("Request")
         self.send_response(202)
 
         # username = params["username"][0]
