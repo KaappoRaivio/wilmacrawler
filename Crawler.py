@@ -67,6 +67,7 @@ class Crawler:
         details = list(map(self.__get_lesson_details, lessons))
 
         courses = set(map(lambda lesson: lesson.find_element_by_tag_name("a").text, lessons))
+        print(courses, range, details)
         return Schedule(courses, range, details)
 
     def __get_lesson_details(self, lesson_element):
@@ -237,7 +238,7 @@ if __name__ == "__main__":
     # options.add_argument("-headless")
     driver = webdriver.Firefox(options=options)
     with Crawler(driver, debug=True) as crawler:
-        crawler.login("wrong", "pass")
+        crawler.login(*get_credentials())
         time.sleep(1)
         s = crawler.get_schedule()
         print(json.dumps(transform_ugly.transform(s.details, s), indent=4, sort_keys=True), file=open("out.json", "w"))
