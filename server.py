@@ -60,6 +60,7 @@ import sys
 
 
 if __name__ == '__main__':
-    server = HTTPServer(('localhost', int(sys.argv[1])), GetHandler)
+    print(sys.argv[1])
+    server = HTTPServer((sys.argv[1], int(sys.argv[2])), GetHandler)
     print('Starting server, use <Ctrl-C> to stop')
     server.serve_forever()
