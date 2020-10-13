@@ -45,6 +45,7 @@ class GetHandler(BaseHTTPRequestHandler):
         _json = get_data(username, password)
         if _json:
             self.send_header("Content-Type", "application/json; charset=utf-8")
+            self.send_header("Access-Control-Allow-Origin", "*")
             self.end_headers()
             self.wfile.write(json.dumps(_json).encode("utf-8"))
             self.send_response(200)
