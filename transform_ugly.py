@@ -38,7 +38,9 @@ def transform_upcoming(schedule, rooms_temp):
                     "room": rooms_temp[course_title]
                 }]
 
-    return upcoming
+
+
+    return sorted([{"date": key, "events": upcoming[key]} for key in upcoming], key=lambda x: int("".join(x["date"].split("-"))))
 
 
 def convert_time(time):
