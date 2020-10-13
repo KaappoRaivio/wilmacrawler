@@ -15,7 +15,7 @@ cache = {}
 
 def get_data(username, password):
     if username in cache and time.time() - cache[username][0] < 12 * 60 * 60:
-        return cache[username]
+        return cache[username][1]
     else:
         options = Options()
         options.add_argument("-headless")
