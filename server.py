@@ -62,6 +62,6 @@ import sys
 
 if __name__ == '__main__':
     print(sys.argv[1])
-    server = HTTPServer((sys.argv[1], int(sys.argv[2])), GetHandler)
+    server = HTTPServer((sys.argv[1].replace("any", ""), int(sys.argv[2])), GetHandler)
     print('Starting server, use <Ctrl-C> to stop')
     server.serve_forever()
