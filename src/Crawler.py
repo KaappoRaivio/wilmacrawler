@@ -11,16 +11,18 @@ from selenium.webdriver.firefox.options import Options
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 
+import transform_ugly
+
 FRIDAY = 4
 MONDAY = 0
 
 
 class Crawler:
-    def __init__(self, driver, debug=False):
+    def __init__(self, driver, debug=False, url="https://wilma.espoo.fi"):
         self.driver = driver
         self.id = 0
 
-        self.driver.get("http://wilma.espoo.fi")
+        self.driver.get(url)
         self.driver.set_window_size(960, 1080)
         self.debug = debug
 
@@ -221,7 +223,7 @@ class Schedule:
         today = datetime.date.today()
         dateobjects = []
         for date in dates:
-            weekday, daymonth = re.sub("\\.$", "", date).split(" ")
+            weekday, daymonth = re.sub(r"\.$", "", date).split(" ")
             day, month = daymonth.split(".")
 
             if today.weekday() > FRIDAY:
@@ -231,7 +233,6 @@ class Schedule:
 
         return [self.weekdays[index] + " " +  x for index, x in enumerate(list(map(lambda x: x.strftime("%d.%m"), dateobjects)))]
 
-import transform_ugly
 
 if __name__ == "__main__":
     options = Options()

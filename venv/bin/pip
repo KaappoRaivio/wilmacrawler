@@ -1,4 +1,4 @@
-#!/home/kaappo/git/fuckvisma/venv/bin/python
+#!/home/kaappo/git/wilmacrawler/venv/bin/python
 # -*- coding: utf-8 -*-
 import re
 import sys

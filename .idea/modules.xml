@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/fuckvisma.iml" filepath="$PROJECT_DIR$/fuckvisma.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/wilmacrawler.iml" filepath="$PROJECT_DIR$/.idea/wilmacrawler.iml" />
     </modules>
   </component>
 </project>

@@ -9,9 +9,10 @@ from selenium.webdriver.firefox.options import Options
 import transform_ugly
 from Crawler import Crawler, get_credentials
 
-# import urlparse
+import sys
 
 cache = {}
+
 
 def get_data(username, password):
     if username in cache and time.time() - cache[username][0] < 12 * 60 * 60:
@@ -36,7 +37,7 @@ class GetHandler(BaseHTTPRequestHandler):
         # params = parse.parse_qs(o.query)
         # print(params)
         print("Request")
-        self.send_response(202)
+        # self.send_response(202)
 
         # username = params["username"][0]
         # password = params["password"][0]
@@ -44,24 +45,17 @@ class GetHandler(BaseHTTPRequestHandler):
 
         _json = get_data(username, password)
         if _json:
+            self.send_response(200)
             self.send_header("Content-Type", "application/json; charset=utf-8")
             self.send_header("Access-Control-Allow-Origin", "*")
             self.end_headers()
             self.wfile.write(json.dumps(_json).encode("utf-8"))
-            self.send_response(200)
         else:
             self.send_response(500)
 
 
 
-
-
-
-import sys
-
-
 if __name__ == '__main__':
-    print(sys.argv[1])
     server = HTTPServer((sys.argv[1].replace("any", ""), int(sys.argv[2])), GetHandler)
     print('Starting server, use <Ctrl-C> to stop')
     server.serve_forever()
