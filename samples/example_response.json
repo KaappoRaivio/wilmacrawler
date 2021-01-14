@@ -1,0 +1,378 @@
+{
+  "courses": {
+    "ENA05.5": {
+      "homework": [
+        {
+          "given_on": "2021-01-08",
+          "homework": "grammar exercises 16,17 as homework"
+        },
+        {
+          "given_on": "2021-01-07",
+          "homework": "exercises 4 C + D"
+        },
+        {
+          "given_on": "2020-12-18",
+          "homework": "no homework for the holidays"
+        },
+        {
+          "given_on": "2020-12-17",
+          "homework": "exercise 3E as homework"
+        },
+        {
+          "given_on": "2020-12-11",
+          "homework": "grammar: infinitive, ing-forms ja that-lause: exercises 1 + 7"
+        },
+        {
+          "given_on": "2020-12-08",
+          "homework": "glossary: traffic: exercise B translation sentences"
+        },
+        {
+          "given_on": "2020-12-04",
+          "homework": "exercises 1B, 1C, !D, 1E"
+        },
+        {
+          "given_on": "2020-12-03",
+          "homework": "lue kertaalleen kpl 1 lukul\u00e4ksyn\u00e4, jatkamme sen kanssa perjantain tunnilla; tutustu Classroomissa olevaan teht\u00e4v\u00e4\u00e4n"
+        }
+      ],
+      "lesson_diary": [
+        {
+          "date": "2021-02-03",
+          "lesson_number": "19",
+          "lesson_topic": "evaluation day = arviointip\u00e4iv\u00e4"
+        },
+        {
+          "date": "2021-01-26",
+          "lesson_number": "18",
+          "lesson_topic": ""
+        },
+        {
+          "date": "2021-01-22",
+          "lesson_number": "17",
+          "lesson_topic": ""
+        },
+        {
+          "date": "2021-01-21",
+          "lesson_number": "16",
+          "lesson_topic": ""
+        },
+        {
+          "date": "2021-01-19",
+          "lesson_number": "15",
+          "lesson_topic": ""
+        },
+        {
+          "date": "2021-01-15",
+          "lesson_number": "14",
+          "lesson_topic": ""
+        },
+        {
+          "date": "2021-01-14",
+          "lesson_number": "13",
+          "lesson_topic": ""
+        },
+        {
+          "date": "2021-01-12",
+          "lesson_number": "12",
+          "lesson_topic": "text 5; exercises 5ENGAGE, 5D, C, E, F; word formation exercises: started from exercise 3 and then onwards, prefixes and suffixes"
+        },
+        {
+          "date": "2021-01-08",
+          "lesson_number": "11",
+          "lesson_topic": "exercise 4F; checked homework; started grammar Paljoussanat"
+        },
+        {
+          "date": "2021-01-07",
+          "lesson_number": "10",
+          "lesson_topic": "text 4"
+        },
+        {
+          "date": "2020-12-22",
+          "lesson_number": "9",
+          "lesson_topic": "Holidays already!"
+        },
+        {
+          "date": "2020-12-18",
+          "lesson_number": "8",
+          "lesson_topic": "viimeisteltiin kpl 3: teht\u00e4v\u00e4t 3 ja I; kielioppiteht\u00e4v\u00e4t 9-15 j\u00e4\u00e4v\u00e4t joulun j\u00e4lkeen"
+        },
+        {
+          "date": "2020-12-17",
+          "lesson_number": "7",
+          "lesson_topic": "exercises 3, B, C, D, E and G"
+        },
+        {
+          "date": "2020-12-15",
+          "lesson_number": "6",
+          "lesson_topic": "ro-tunti: meni koko tunti siihen"
+        },
+        {
+          "date": "2020-12-11",
+          "lesson_number": "5",
+          "lesson_topic": "exercise 2 G; glossary psychology + exercises A, B, DIY"
+        },
+        {
+          "date": "2020-12-10",
+          "lesson_number": "4",
+          "lesson_topic": "text 2; exercises F, I, J, K; prefix exercises 1 & 2 from Learning to learn section in the course material"
+        },
+        {
+          "date": "2020-12-08",
+          "lesson_number": "3",
+          "lesson_topic": "exercises 1F, G, I"
+        },
+        {
+          "date": "2020-12-04",
+          "lesson_number": "2",
+          "lesson_topic": "kurssin alku for real; listened to text 1"
+        },
+        {
+          "date": "2020-12-03",
+          "lesson_number": "1",
+          "lesson_topic": "kurssin alku; itsen\u00e4ist\u00e4 ty\u00f6skentely\u00e4: ohjeet Classroomissa"
+        }
+      ],
+      "teacher": "SAA",
+      "title": "ENA05.5"
+    },
+    "FY05.D2": {
+      "homework": [],
+      "lesson_diary": [],
+      "teacher": "MAK",
+      "title": "FY05.D2"
+    },
+    "KED08.2": {
+      "homework": [],
+      "lesson_diary": [],
+      "teacher": "HON",
+      "title": "KED08.2"
+    },
+    "LI01.13": {
+      "homework": [],
+      "lesson_diary": [],
+      "teacher": "KNU",
+      "title": "LI01.13"
+    },
+    "MAA08.D2": {
+      "homework": [],
+      "lesson_diary": [],
+      "teacher": "SAV",
+      "title": "MAA08.D2"
+    },
+    "MU02.3": {
+      "homework": [],
+      "lesson_diary": [],
+      "teacher": "LAA",
+      "title": "MU02.3"
+    }
+  },
+  "teachers": {
+    "HON": {
+      "email": "",
+      "long_name": "",
+      "role": "",
+      "short_name": "HON"
+    },
+    "KNU": {
+      "email": "",
+      "long_name": "",
+      "role": "",
+      "short_name": "KNU"
+    },
+    "LAA": {
+      "email": "",
+      "long_name": "",
+      "role": "",
+      "short_name": "LAA"
+    },
+    "MAK": {
+      "email": "",
+      "long_name": "",
+      "role": "",
+      "short_name": "MAK"
+    },
+    "SAA": {
+      "email": "",
+      "long_name": "",
+      "role": "",
+      "short_name": "SAA"
+    },
+    "SAV": {
+      "email": "",
+      "long_name": "",
+      "role": "",
+      "short_name": "SAV"
+    }
+  },
+  "upcoming": [
+    {
+      "date": "2020-01-18",
+      "events": [
+        {
+          "course": "LI01.13",
+          "end_time": "9:45",
+          "nth_lesson": 0,
+          "room": "LI1",
+          "start_time": "8:30",
+          "type": "lesson"
+        },
+        {
+          "course": "FY05.D2",
+          "end_time": "11:15",
+          "nth_lesson": 1,
+          "room": "1317",
+          "start_time": "10:00",
+          "type": "lesson"
+        },
+        {
+          "course": "KED08.2",
+          "end_time": "13:15",
+          "nth_lesson": 2,
+          "room": "2240",
+          "start_time": "11:20",
+          "type": "lesson"
+        }
+      ]
+    },
+    {
+      "date": "2020-01-19",
+      "events": [
+        {
+          "course": "MU02.3",
+          "end_time": "9:45",
+          "nth_lesson": 0,
+          "room": "1504",
+          "start_time": "8:30",
+          "type": "lesson"
+        },
+        {
+          "course": "KED08.2",
+          "end_time": "11:15",
+          "nth_lesson": 1,
+          "room": "2240",
+          "start_time": "10:00",
+          "type": "lesson"
+        },
+        {
+          "course": "MAA08.D2",
+          "end_time": "13:15",
+          "nth_lesson": 2,
+          "room": "3147",
+          "start_time": "11:20",
+          "type": "lesson"
+        },
+        {
+          "course": "ENA05.5",
+          "end_time": "14:45",
+          "nth_lesson": 3,
+          "room": "3146",
+          "start_time": "13:30",
+          "type": "lesson"
+        }
+      ]
+    },
+    {
+      "date": "2020-01-20",
+      "events": [
+        {
+          "course": "MAA08.D2",
+          "end_time": "9:45",
+          "nth_lesson": 0,
+          "room": "3147",
+          "start_time": "8:30",
+          "type": "lesson"
+        },
+        {
+          "course": "LI01.13",
+          "end_time": "11:15",
+          "nth_lesson": 1,
+          "room": "LI1",
+          "start_time": "10:00",
+          "type": "lesson"
+        },
+        {
+          "course": "FY05.D2",
+          "end_time": "13:15",
+          "nth_lesson": 2,
+          "room": "1317",
+          "start_time": "11:20",
+          "type": "lesson"
+        }
+      ]
+    },
+    {
+      "date": "2020-01-21",
+      "events": [
+        {
+          "course": "MU02.3",
+          "end_time": "9:45",
+          "nth_lesson": 0,
+          "room": "1504",
+          "start_time": "8:30",
+          "type": "lesson"
+        },
+        {
+          "course": "KED08.2",
+          "end_time": "11:15",
+          "nth_lesson": 1,
+          "room": "2240",
+          "start_time": "10:00",
+          "type": "lesson"
+        },
+        {
+          "course": "LI01.13",
+          "end_time": "13:15",
+          "nth_lesson": 2,
+          "room": "LI1",
+          "start_time": "11:20",
+          "type": "lesson"
+        },
+        {
+          "course": "ENA05.5",
+          "end_time": "14:45",
+          "nth_lesson": 3,
+          "room": "3146",
+          "start_time": "13:30",
+          "type": "lesson"
+        },
+        {
+          "course": "FY05.D2",
+          "end_time": "16:15",
+          "nth_lesson": 4,
+          "room": "1317",
+          "start_time": "15:00",
+          "type": "lesson"
+        }
+      ]
+    },
+    {
+      "date": "2020-01-22",
+      "events": [
+        {
+          "course": "ENA05.5",
+          "end_time": "9:45",
+          "nth_lesson": 0,
+          "room": "3146",
+          "start_time": "8:30",
+          "type": "lesson"
+        },
+        {
+          "course": "MAA08.D2",
+          "end_time": "11:15",
+          "nth_lesson": 1,
+          "room": "3147",
+          "start_time": "10:00",
+          "type": "lesson"
+        },
+        {
+          "course": "MU02.3",
+          "end_time": "14:45",
+          "nth_lesson": 3,
+          "room": "1504",
+          "start_time": "13:30",
+          "type": "lesson"
+        }
+      ]
+    }
+  ]
+}
