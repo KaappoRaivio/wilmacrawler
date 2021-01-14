@@ -4,10 +4,12 @@ Have you ever wondered, how nice would it be to have your schedule for the week 
 
 Wonder no more! This is my solution to those and many other wonders.
 
-**Wilmacrawler** is uses Selenium to crawl the Wilma website, and presents the various information as a simple, one-call REST API. You must host the server yourself, as the developer of this library cannot take the responsibility of handling other people's login credentials.
+**Wilmacrawler** is uses Selenium to crawl the Wilma website, and presents the various information as a simple, one-call REST API.
 
 ####Disclaimer
-Exposing the API in it current state to the public internet is a security vulnerability. Even though no sensitive information is exposed, Python's `HTTPServer` isn't meant for public production, and has no protection against even rudimentary attacs. 
+You must host the server yourself, because as developer of this library, I cannot take the responsibility of handling other people's login credentials. 
+
+Also, please keep in mind that xposing the API in it current state to the public internet is a security vulnerability. Even though no sensitive information is exposed, Python's `HTTPServer` isn't meant for public production, and has no protection against even rudimentary attacs. 
 
 This project is solely meant to be used in a closed LAN network with no conceivable outside threats.
 
@@ -15,18 +17,20 @@ This project is solely meant to be used in a closed LAN network with no conceiva
 
 Unfortunately, as long as there isn't an official API, this is the only way.  
 
-##Installation
+## 
 1. Clone this repo into your computer and `cd` into it.
 2. Activate the `virtualenv`: `chmod +x venv/bin/activate; venv/bin/activate`
 2. Install dependencies: `pip3 install -r requirements.txt`.
 3. Download latest geckodriver that suits your system from https://github.com/mozilla/geckodriver/releases.
 4. Unzip the download, and place the unzipped file "geckodriver" somewhere in your `PATH`, for example `/usr/sbin/`.
 5. Into the root of this repo, make a file called `credentials`. Type your Wilma username to the first line, and password to the second.
-6. Now you can run `python3 src/server.py <address> <port>`. To accept connections from any address, type "any" for `<address>`.
+6. Now you can run `python3 src/server.py <address> <port>`. To accept connections from any address, set `<address>` to `"any"`.
 
 ##API
 To get a response, send a `GET` request to the port you selected. Path doesn't matter.
-The response takes a while, an asynchronous request-reply pattern is on the TODO list. 
+The first request takes a while, but a cache is implemented for subsequent requests. 
+
+If you want, you can have a look at an example respose at `samples/example_response.json`
 
 As a response, you get a JSON object. The structure of the response is explained below:
 
